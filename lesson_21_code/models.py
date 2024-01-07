@@ -16,7 +16,6 @@ from lesson_21_code.db_conn import DBConnector
 
 import environ
 import os
-from urllib.parse import quote
 
 BASE_DIR = "/home/vladislav/Desktop/innoDom012"
 
@@ -25,7 +24,7 @@ environ.Env.read_env(os.path.join(BASE_DIR, ".env"))
 
 
 # db_url = f"postgresql://[user]:[password]@[host]:[port]/[db_name]"
-db_url = f"postgresql://{env('DB_USER_POS')}:{quote(env('DB_PASSWORD_POS'))}@{env('DB_HOST_POS')}:\
+db_url = f"postgresql://{env('DB_USER_POS')}:{env('DB_PASSWORD_POS')}@{env('DB_HOST_POS')}:\
 {env('DB_PORT_POS')}/{env('DB_NAME_POS')}"
 
 Base = declarative_base()

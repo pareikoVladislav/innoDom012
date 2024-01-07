@@ -55,15 +55,17 @@ db_url = f"postgresql://{env('DB_USER_POS')}:{quote(env('DB_PASSWORD_POS'))}@{en
 #     write_user_number(manager=session, form_data=front_phone_form_data)
 
 front_user_form_data = {
+    "id": 1,
     "name": "Andrew",
     "age": 30,
-    "email": "andrew93@gmail.com",
+    "email": "andressw93@gmail.com",
     "country": "Belarus",
     "city": "Minsk",
 }
 
 front_phone_form_data = {
-    "user_id": 2,
+    "id": 1,
+    "user_id": 1,
     "number": "+375 44 737 02 01",
 }
 
@@ -73,7 +75,6 @@ def create_new_user(manager, form_data):
 
     manager.add(user)
     raise DisconnectionError("Something went wrong")
-    manager.commit()
 
 
 def write_user_number(manager, form_data):
@@ -81,13 +82,13 @@ def write_user_number(manager, form_data):
 
     manager.add(phone_number_data)
 
-    manager.commit()
-
 
 with DBConnector(db_url=db_url) as session:
     try:
         create_new_user(manager=session, form_data=front_user_form_data)
         write_user_number(manager=session, form_data=front_phone_form_data)
-    except DisconnectionError:
+        manager.commit()
+    except DisconnectionError as err:
+        print(str(err))
         session.rollback()
 

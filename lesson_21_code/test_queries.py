@@ -19,38 +19,38 @@
 #
 # cursor = connection.cursor()
 #
-# #
-# # cursor.execute("""
-# #     CREATE TABLE IF NOT EXISTS "user" (
-# #         id INT PRIMARY KEY,
-# #         name VARCHAR(25) NOT NULL,
-# #         surname VARCHAR(30),
-# #         age FLOAT NOT NULL,
-# #         email VARCHAR(80) UNIQUE NOT NULL,
-# #         country VARCHAR(35) NOT NULL,
-# #         city VARCHAR(25),
-# #         deleted BOOLEAN DEFAULT FALSE,
-# #         created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-# #         updated_at TIMESTAMP DEFAULT NULL
-# #     )
-# # """)
-# #
-# # cursor.execute(
-# #     """
-# #     CREATE TABLE IF NOT EXISTS Phone_book (
-# #         id INT PRIMARY KEY,
-# #         user_id INT,
-# #         number VARCHAR(50),
-# #         deleted BOOLEAN DEFAULT FALSE,
-# #         created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-# #         updated_at TIMESTAMP DEFAULT NULL,
-# #         FOREIGN KEY (user_id) REFERENCES "user"(id)
-# #     )
-# #     """
-# # )
-# #
-# # connection.commit()
-# # connection.close()
+#
+# cursor.execute("""
+#     CREATE TABLE IF NOT EXISTS "user" (
+#         id INT PRIMARY KEY,
+#         name VARCHAR(25) NOT NULL,
+#         surname VARCHAR(30),
+#         age FLOAT NOT NULL,
+#         email VARCHAR(80) UNIQUE NOT NULL,
+#         country VARCHAR(35) NOT NULL,
+#         city VARCHAR(25),
+#         deleted BOOLEAN DEFAULT FALSE,
+#         created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+#         updated_at TIMESTAMP DEFAULT NULL
+#     )
+# """)
+#
+# cursor.execute(
+#     """
+#     CREATE TABLE IF NOT EXISTS phonebook (
+#         id INT PRIMARY KEY,
+#         user_id INT,
+#         number VARCHAR(50),
+#         deleted BOOLEAN DEFAULT FALSE,
+#         created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+#         updated_at TIMESTAMP DEFAULT NULL,
+#         FOREIGN KEY (user_id) REFERENCES "user"(id)
+#     )
+#     """
+# )
+#
+# connection.commit()
+# connection.close()
 #
 # # cursor.execute(
 # #     """
